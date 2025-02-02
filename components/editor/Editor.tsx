@@ -12,6 +12,7 @@ import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary';
 import React from 'react';
 
 import { FloatingComposer, FloatingThreads, liveblocksConfig, LiveblocksPlugin, useEditorStatus } from '@liveblocks/react-lexical'
+import { useSyncStatus } from "@liveblocks/react";
 import Loader from '../Loader';
 
 import FloatingToolbarPlugin from './plugins/FloatingToolbarPlugin';
@@ -28,7 +29,7 @@ function Placeholder() {
 }
 
 export function Editor({ roomId, currentUserType }: { roomId: string, currentUserType: UserType }) {
-  const status = useEditorStatus();
+  const status = useSyncStatus();
   const { threads } = useThreads();
 
   const initialConfig = liveblocksConfig({
@@ -51,7 +52,7 @@ export function Editor({ roomId, currentUserType }: { roomId: string, currentUse
         </div>
 
         <div className="editor-wrapper flex flex-col items-center justify-start">
-          {status === 'not-loaded' || status === 'loading' ? <Loader /> : (
+          {(status as string) === 'not-loaded' || (status as string) === 'loading' ? <Loader /> : (
             <div className="editor-inner min-h-[1100px] relative mb-5 h-fit w-full max-w-[800px] shadow-md lg:mb-10">
               <RichTextPlugin
                 contentEditable={

@@ -31,7 +31,10 @@ export const getDocumentUsers = async ({ roomId, currentUser, text }: { roomId: 
   try {
     const room = await liveblocks.getRoom(roomId);
 
+    // Get the list of users with access to the document
+    // excluding the current user
     const users = Object.keys(room.usersAccesses).filter((email) => email !== currentUser);
+    // This will be used to filter the users based on the search input
 
     if(text.length) {
       const lowerCaseText = text.toLowerCase();
