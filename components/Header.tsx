@@ -7,10 +7,10 @@ export default function Header({ children, className }: HeaderProps) {
         <div className={cn("header", className)}>
       <Link href='/' className="md:flex-1">
         <Image 
-          src="/assets/icons/logo.svg"
+          src="/assets/icons/logo-icon.svg" //logo
           alt="Logo with name"
-          width={120}
-          height={32}
+          width={50}
+          height={50}
           className="hidden md:block"
         />
         <Image 
