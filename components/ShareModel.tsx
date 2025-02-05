@@ -44,8 +44,8 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger>
-        <Button className="gradient-blue flex h-9 gap-1 px-4" disabled={currentUserType !== 'editor'}>
+      <DialogTrigger className="gradient-blue flex h-9 gap-1 px-4 p-1.5 rounded-lg" disabled={currentUserType !== 'editor'}>
+        {/* <Button className="gradient-blue flex h-9 gap-1 px-4" disabled={currentUserType !== 'editor'}>
           <Image
             src="/assets/icons/share.svg"
             alt="share"
@@ -56,7 +56,17 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
           <p className="mr-1 hidden sm:block">
             Share
           </p>
-        </Button>
+        </Button> */}
+          <Image
+            src="/assets/icons/share.svg"
+            alt="share"
+            width={20}
+            height={20}
+            className="min-w-4 md:size-5"
+          />
+          <p className="mr-1 hidden sm:block">
+            Share
+          </p>
       </DialogTrigger>
       <DialogContent className="shad-dialog">
         <DialogHeader>
